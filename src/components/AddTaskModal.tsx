@@ -2,9 +2,10 @@ import type { MouseEventHandler } from "react"
 
 interface IAddTaskModal {
     buttonOnClick: MouseEventHandler
+    closeModal: MouseEventHandler
 }
 
-function AddTaskModal({ buttonOnClick }: IAddTaskModal) {
+function AddTaskModal({ buttonOnClick, closeModal }: IAddTaskModal) {
     return (
         <div className="w-full h-full bg-white/30 backdrop-blur fixed top-0 left-0 flex items-center justify-center z-10">
             <div className="bg-white my-4 w-80 mx-auto rounded-md p-4 shadow-md">
@@ -32,6 +33,9 @@ function AddTaskModal({ buttonOnClick }: IAddTaskModal) {
                     className="bg-green-500 text-white font-bold py-2 px-4 mt-2 text-sm rounded-md cursor-pointer transition active:bg-green-600 active:scale-95"
                 >
                     افزودن
+                </button>
+                <button className="m-2" onClick={closeModal}>
+                    بستن
                 </button>
             </div>
         </div>
