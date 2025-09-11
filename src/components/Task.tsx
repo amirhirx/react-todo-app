@@ -20,3 +20,4 @@ function Task({ key, flag, title, text }: ITask) {
 }
 
 export default Task
+export type { ITask }
