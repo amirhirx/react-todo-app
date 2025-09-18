@@ -1,11 +1,25 @@
-import type { MouseEventHandler } from "react"
+import { useContext, type MouseEventHandler } from "react"
+import { TodoContext } from "../contexts/todoContext"
 
 interface IAddTaskModal {
-    buttonOnClick: MouseEventHandler
     closeModal: MouseEventHandler
 }
 
-function AddTaskModal({ buttonOnClick, closeModal }: IAddTaskModal) {
+function AddTaskModal({ closeModal }: IAddTaskModal) {
+    const { newTask, todo } = useContext(TodoContext)
+
+    const addNewTask = () => {
+        console.log("Add New Task")
+        const newTaskObj = {
+            key: Math.random(),
+            flag: false,
+            title: "Test Title",
+            text: "Lorem ipsum",
+        }
+        newTask(newTaskObj)
+        console.log(todo)
+    }
+
     return (
         <div className="w-full h-full bg-white/30 backdrop-blur fixed top-0 left-0 flex items-center justify-center z-10">
             <div className="bg-white my-4 w-80 mx-auto rounded-md p-4 shadow-md">
@@ -29,7 +43,7 @@ function AddTaskModal({ buttonOnClick, closeModal }: IAddTaskModal) {
                     ></textarea>
                 </div>
                 <button
-                    onClick={buttonOnClick}
+                    onClick={addNewTask}
                     className="bg-green-500 text-white font-bold py-2 px-4 mt-2 text-sm rounded-md cursor-pointer transition active:bg-green-600 active:scale-95"
                 >
                     افزودن
