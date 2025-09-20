@@ -1,23 +1,25 @@
-import { useContext, type MouseEventHandler } from "react"
+import { useContext, useRef } from "react"
 import { TodoContext } from "../contexts/todoContext"
 
 interface IAddTaskModal {
-    closeModal: MouseEventHandler
+    closeModal: () => void
 }
 
 function AddTaskModal({ closeModal }: IAddTaskModal) {
-    const { newTask, todo } = useContext(TodoContext)
+    const { newTask } = useContext(TodoContext)
+
+    const newTaskTitle = useRef("new-task-title")
+    const newTaskText = useRef("new-task-text")
 
     const addNewTask = () => {
-        console.log("Add New Task")
         const newTaskObj = {
             key: Math.random(),
             flag: false,
-            title: "Test Title",
-            text: "Lorem ipsum",
+            title: newTaskTitle.current?.value,
+            text: newTaskText.current?.value,
         }
         newTask(newTaskObj)
-        console.log(todo)
+        closeModal()
     }
 
     return (
@@ -27,6 +29,7 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                 <div className="my-2">
                     <label htmlFor="">عنوان</label>
                     <input
+                        ref={newTaskTitle}
                         id="new-task-title"
                         name="new-task-title"
                         type="text"
@@ -36,6 +39,7 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                 <div className="my-2">
                     <label htmlFor="">توضیحات</label>
                     <textarea
+                        ref={newTaskText}
                         name="new-task-text"
                         id="new-task-text"
                         rows={4}
