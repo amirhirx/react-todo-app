@@ -13,7 +13,7 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
 
     const addNewTask = () => {
         const newTaskObj = {
-            key: Math.random(),
+            id: Math.random(),
             flag: false,
             title: newTaskTitle.current?.value,
             text: newTaskText.current?.value,

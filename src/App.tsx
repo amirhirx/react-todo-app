@@ -19,9 +19,15 @@ function App() {
                 <AddTaskModal closeModal={closeNewTaskModal} />
             ) : null}
             <div className="w-2/3 mx-auto">
-                {todo.map(({ key, flag, title, text }) => {
+                {todo.map(({ id, flag, title, text }) => {
                     return (
-                        <Task key={key} flag={flag} title={title} text={text} />
+                        <Task
+                            key={id}
+                            id={id}
+                            flag={flag}
+                            title={title}
+                            text={text}
+                        />
                     )
                 })}
             </div>

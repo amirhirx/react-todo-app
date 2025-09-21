@@ -1,16 +1,16 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid"
 
 interface ITask {
-    key: number
+    id: string
     flag: boolean
     title: string
     text: string
 }
 
-function Task({ key, flag, title, text }: ITask) {
+function Task({ id, flag, title, text }: ITask) {
     return (
         <div
-            key={key}
+            id={id}
             className={`bg-white m-4 p-4 rounded-md ${
                 flag ? "line-through opacity-45" : ""
             }`}
