@@ -5,6 +5,7 @@ interface ITodoContext {
     todo: ITask[]
     newTask: (task: ITask) => void
     removeTask: (id: string) => void
+    editTask: (task: ITask) => void
 }
 
 const TodoContext = createContext<ITodoContext>({} as ITodoContext)
@@ -28,8 +29,20 @@ const TodoContextProvider = ({ children }: { children: React.ReactNode }) => {
         })
     }
 
+    const editTask = (targetTask: ITask) => {
+        setTodo(
+            todo.map((task) => {
+                if (task.id == targetTask.id) {
+                    return targetTask
+                } else {
+                    return task
+                }
+            })
+        )
+    }
+
     return (
-        <TodoContext.Provider value={{ todo, newTask, removeTask }}>
+        <TodoContext.Provider value={{ todo, newTask, removeTask, editTask }}>
             {children}
         </TodoContext.Provider>
     )
