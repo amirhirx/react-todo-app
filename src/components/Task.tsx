@@ -3,6 +3,9 @@ import { useContext, useState } from "react"
 import { TodoContext } from "../contexts/todoContext"
 import EditTaskModal from "./EditTaskModal"
 
+import { CheckCircleIcon as CheckCircleOutline } from "@heroicons/react/24/outline"
+import { CheckCircleIcon as CheckCircleSolid } from "@heroicons/react/24/solid"
+
 interface ITask {
     id: string
     flag: boolean
@@ -11,7 +14,7 @@ interface ITask {
 }
 
 function Task({ id, flag, title, text }: ITask) {
-    const { removeTask } = useContext(TodoContext)
+    const { removeTask, toggleTaskFlag } = useContext(TodoContext)
     const handleTrashClick = () => {
         removeTask(id)
     }
@@ -20,6 +23,18 @@ function Task({ id, flag, title, text }: ITask) {
 
     const closeEditTaskModal = () => {
         setShowEditTaskModal(false)
+    }
+
+    const checkIconHandler = () => {
+        const changedTask = {
+            id: id,
+            flag: !flag,
+            title: title,
+            text: text,
+        }
+
+        console.log(changedTask)
+        toggleTaskFlag(changedTask)
     }
 
     const [showEditTaskModal, setShowEditTaskModal] = useState(false)
@@ -41,7 +56,20 @@ function Task({ id, flag, title, text }: ITask) {
                 }`}
             >
                 <div className="flex items-center justify-between">
-                    <h3 className={` text-xl font-bold`}>{title}</h3>
+                    <div className="flex item-center gap-1">
+                        {flag ? (
+                            <CheckCircleOutline
+                                className="h-6 w-6 text-gray-800 transition active:scale-90"
+                                onClick={checkIconHandler}
+                            />
+                        ) : (
+                            <CheckCircleSolid
+                                className="h-6 w-6 text-gray-800 transition active:scale-90"
+                                onClick={checkIconHandler}
+                            />
+                        )}
+                        <h3 className={` text-xl font-bold`}>{title}</h3>
+                    </div>
                     <div className="flex items-center gap-1">
                         <PencilSquareIcon
                             className="h-6 w-6 text-gray-800 transition active:scale-90"
