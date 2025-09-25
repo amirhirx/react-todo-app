@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react"
 import { TodoContext } from "../contexts/todoContext"
+import { nanoid } from "nanoid"
 
 interface IAddTaskModal {
     closeModal: () => void
@@ -13,7 +14,7 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
 
     const addNewTask = () => {
         const newTaskObj = {
-            id: Math.random(),
+            id: nanoid(),
             flag: false,
             title: newTaskTitle.current?.value,
             text: newTaskText.current?.value,
