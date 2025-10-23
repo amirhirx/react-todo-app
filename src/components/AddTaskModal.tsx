@@ -1,6 +1,7 @@
-import { useContext, useRef } from "react"
+import { useContext, useState } from "react"
 import { TodoContext } from "../contexts/todoContext"
 import { nanoid } from "nanoid"
+import type { ITask } from "./Task"
 
 interface IAddTaskModal {
     closeModal: () => void
@@ -9,16 +10,14 @@ interface IAddTaskModal {
 function AddTaskModal({ closeModal }: IAddTaskModal) {
     const { newTask } = useContext(TodoContext)
 
-    const newTaskTitle = useRef("new-task-title")
-    const newTaskText = useRef("new-task-text")
+    const [newTaskObj, setNewTaskObj] = useState<ITask>({
+        id: nanoid(),
+        flag: false,
+        title: "",
+        text: "",
+    })
 
     const addNewTask = () => {
-        const newTaskObj = {
-            id: nanoid(),
-            flag: false,
-            title: newTaskTitle.current?.value,
-            text: newTaskText.current?.value,
-        }
         newTask(newTaskObj)
         closeModal()
     }
@@ -30,21 +29,31 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                 <div className="my-2">
                     <label htmlFor="">عنوان</label>
                     <input
-                        ref={newTaskTitle}
                         id="new-task-title"
                         name="new-task-title"
                         type="text"
                         className="w-full border border-gray-500 rounded-md outline-none px-2"
+                        value={newTaskObj.title}
+                        onChange={(event) => {
+                            setNewTaskObj((prev) => {
+                                return { ...prev, title: event?.target.value }
+                            })
+                        }}
                     />
                 </div>
                 <div className="my-2">
                     <label htmlFor="">توضیحات</label>
                     <textarea
-                        ref={newTaskText}
                         name="new-task-text"
                         id="new-task-text"
                         rows={4}
                         className="w-full min-w-full max-w-full min-h-12 border border-gray-500 rounded-md outline-none px-2"
+                        value={newTaskObj.text}
+                        onChange={(event) => {
+                            setNewTaskObj((prev) => {
+                                return { ...prev, text: event?.target.value }
+                            })
+                        }}
                     ></textarea>
                 </div>
                 <button
