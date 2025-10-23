@@ -28,9 +28,6 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
         closeModal()
     }
 
-    const taskTitleChangeHandler = (event) => setTaskTitle(event.target.value)
-    const taskTextChangeHandler = (event) => setTaskText(event.target.value)
-
     return (
         <div className="w-full h-full bg-white/30 backdrop-blur fixed top-0 left-0 flex items-center justify-center z-10">
             <div className="bg-white my-4 w-80 mx-auto rounded-md p-4 shadow-md">
@@ -43,7 +40,7 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
                         type="text"
                         className="w-full border border-gray-500 rounded-md outline-none px-2"
                         value={taskTitle}
-                        onChange={taskTitleChangeHandler}
+                        onChange={(event) => setTaskTitle(event.target.value)}
                     />
                 </div>
                 <div className="my-2">
@@ -54,7 +51,7 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
                         rows={4}
                         className="w-full min-w-full max-w-full min-h-12 border border-gray-500 rounded-md outline-none px-2"
                         value={taskText}
-                        onChange={taskTextChangeHandler}
+                        onChange={(event) => setTaskText(event.target.value)}
                     ></textarea>
                 </div>
                 <button
