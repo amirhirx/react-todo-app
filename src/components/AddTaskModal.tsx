@@ -27,12 +27,12 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
             <div className="bg-white my-4 w-80 mx-auto rounded-md p-4 shadow-md">
                 <h2 className="font-bold text-xl">کار جدید</h2>
                 <div className="my-2">
-                    <label htmlFor="">عنوان</label>
+                    <label htmlFor="new-task-title">عنوان</label>
                     <input
                         id="new-task-title"
                         name="new-task-title"
                         type="text"
-                        className="w-full border border-gray-500 rounded-md outline-none px-2"
+                        className="w-full border border-gray-300 rounded-md outline-none px-2 py-1 shadow-md"
                         value={newTaskObj.title}
                         onChange={(event) => {
                             setNewTaskObj((prev) => {
@@ -42,12 +42,12 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                     />
                 </div>
                 <div className="my-2">
-                    <label htmlFor="">توضیحات</label>
+                    <label htmlFor="new-task-text">توضیحات</label>
                     <textarea
                         name="new-task-text"
                         id="new-task-text"
                         rows={4}
-                        className="w-full min-w-full max-w-full min-h-12 border border-gray-500 rounded-md outline-none px-2"
+                        className="w-full min-w-full max-w-full min-h-12 border border-gray-300 rounded-md outline-none px-2 py-1 shadow-md"
                         value={newTaskObj.text}
                         onChange={(event) => {
                             setNewTaskObj((prev) => {
