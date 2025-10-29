@@ -51,7 +51,7 @@ function Task({ id, flag, title, text }: ITask) {
             )}
             <div
                 id={id}
-                className={`bg-white m-4 p-4 rounded-md ${
+                className={`bg-[var(--primary-color)] m-4 p-4 rounded-md ${
                     flag ? "line-through opacity-45" : ""
                 }`}
             >
@@ -59,29 +59,33 @@ function Task({ id, flag, title, text }: ITask) {
                     <div className="flex item-center gap-1">
                         {flag ? (
                             <CheckCircleOutline
-                                className="h-6 w-6 text-gray-800 transition active:scale-90"
+                                className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
                                 onClick={checkIconHandler}
                             />
                         ) : (
                             <CheckCircleSolid
-                                className="h-6 w-6 text-gray-800 transition active:scale-90"
+                                className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
                                 onClick={checkIconHandler}
                             />
                         )}
-                        <h3 className={` text-xl font-bold`}>{title}</h3>
+                        <h3
+                            className={` text-xl font-bold text-[var(--text-color)]`}
+                        >
+                            {title}
+                        </h3>
                     </div>
                     <div className="flex items-center gap-1">
                         <PencilSquareIcon
-                            className="h-6 w-6 text-gray-800 transition active:scale-90"
+                            className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
                             onClick={handleEditTask}
                         />
                         <TrashIcon
-                            className="h-6 w-6 text-gray-800 transition active:scale-90"
+                            className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
                             onClick={handleTrashClick}
                         />
                     </div>
                 </div>
-                <p>{text}</p>
+                <p className="text-[var(--text-color)]">{text}</p>
             </div>
         </>
     )

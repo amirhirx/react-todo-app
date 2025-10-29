@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
 interface IThemeContext {
     theme: boolean
@@ -9,6 +9,13 @@ const ThemeContext = createContext<IThemeContext>({} as IThemeContext)
 
 const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [theme, setTheme] = useState<boolean>(false)
+
+    useEffect(() => {
+        document.documentElement.setAttribute(
+            "data-theme",
+            theme ? "dark" : "light"
+        )
+    }, [theme])
 
     const toggleTheme = () => {
         setTheme((prev) => !prev)

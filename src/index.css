@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+:root {
+    --text-color: #111;
+    --primary-color: #fff;
+    --secondary-color: #eee9e9;
+}
+
+[data-theme="dark"] {
+    --text-color: #fff;
+    --primary-color: #212121;
+    --secondary-color: #2f2f2f;
+}
+
 @font-face {
     font-family: "Arad";
     src: url("/public/Arad-VF.woff2");
@@ -7,6 +19,7 @@
 
 body {
     direction: rtl;
-    background: #e4e3e3;
     font-family: "Arad";
+    background: var(--secondary-color);
+    transition: 0.3s all;
 }

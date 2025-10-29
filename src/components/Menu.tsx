@@ -8,8 +8,10 @@ interface IMenu {
 
 function Menu({ toggleShowAddTaskModal }: IMenu) {
     return (
-        <nav className="bg-white py-3 px-8 flex items-center justify-between">
-            <h1 className="text-2xl font-black">تودو</h1>
+        <nav className="bg-[var(--primary-color)] py-3 px-8 flex items-center justify-between">
+            <h1 className="text-2xl font-black text-[var(--text-color)]">
+                تودو
+            </h1>
             <div className="flex items-center gap-4">
                 <ThemeToggleButton />
                 <button

@@ -24,15 +24,22 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
 
     return (
         <div className="w-full h-full bg-white/30 backdrop-blur fixed top-0 left-0 flex items-center justify-center z-10">
-            <div className="bg-white my-4 w-80 mx-auto rounded-md p-4 shadow-md">
-                <h2 className="font-bold text-xl">کار جدید</h2>
+            <div className="bg-[var(--primary-color)] my-4 w-80 mx-auto rounded-md p-4 shadow-md">
+                <h2 className="font-bold text-xl text-[var(--text-color)]">
+                    کار جدید
+                </h2>
                 <div className="my-2">
-                    <label htmlFor="new-task-title">عنوان</label>
+                    <label
+                        htmlFor="new-task-title"
+                        className="text-[var(--text-color)]"
+                    >
+                        عنوان
+                    </label>
                     <input
                         id="new-task-title"
                         name="new-task-title"
                         type="text"
-                        className="w-full border border-gray-300 rounded-md outline-none px-2 py-1 shadow-md"
+                        className="w-full border border-[var(--secondary-color)] bg-[var(--secondary-color)] rounded-md outline-none px-2 py-1 shadow-md text-[var(--text-color)]"
                         value={newTaskObj.title}
                         onChange={(event) => {
                             setNewTaskObj((prev) => {
@@ -42,12 +49,17 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                     />
                 </div>
                 <div className="my-2">
-                    <label htmlFor="new-task-text">توضیحات</label>
+                    <label
+                        htmlFor="new-task-text"
+                        className="text-[var(--text-color)]"
+                    >
+                        توضیحات
+                    </label>
                     <textarea
                         name="new-task-text"
                         id="new-task-text"
                         rows={4}
-                        className="w-full min-w-full max-w-full min-h-12 border border-gray-300 rounded-md outline-none px-2 py-1 shadow-md"
+                        className="w-full min-w-full max-w-full min-h-12 border border-[var(--secondary-color)] bg-[var(--secondary-color)] rounded-md outline-none px-2 py-1 shadow-md text-[var(--text-color)]"
                         value={newTaskObj.text}
                         onChange={(event) => {
                             setNewTaskObj((prev) => {
@@ -62,7 +74,10 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                 >
                     افزودن
                 </button>
-                <button className="m-2" onClick={closeModal}>
+                <button
+                    className="m-2 text-[var(--text-color)]"
+                    onClick={closeModal}
+                >
                     بستن
                 </button>
             </div>

@@ -8,9 +8,9 @@ export default function ThemeToggleButton() {
     return (
         <div onClick={toggleTheme} className="transition active:scale-95">
             {theme ? (
-                <MoonIcon className="h-6 w-6" />
+                <MoonIcon className="h-6 w-6 text-[var(--text-color)]" />
             ) : (
-                <SunIcon className="h-6 w-6" />
+                <SunIcon className="h-6 w-6 text-[var(--text-color)]" />
             )}
         </div>
     )
