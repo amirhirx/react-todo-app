@@ -18,7 +18,7 @@ function App() {
             {showNewTaskModal ? (
                 <AddTaskModal closeModal={closeNewTaskModal} />
             ) : null}
-            <div className="w-2/3 mx-auto">
+            <div className="w-11/12 md:w-2/3 mx-auto">
                 {todo.map(({ id, flag, title, text }) => {
                     return (
                         <Task
