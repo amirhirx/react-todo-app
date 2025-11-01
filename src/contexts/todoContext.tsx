@@ -15,7 +15,9 @@ const TodoContextProvider = ({ children }: { children: React.ReactNode }) => {
     const [todo, setTodo] = useState<ITask[]>([] as ITask[])
 
     const newTask = (task: ITask) => {
-        setTodo((prevTodo) => [...prevTodo, { ...task }])
+        if (task.title) {
+            setTodo((prevTodo) => [...prevTodo, { ...task }])
+        }
     }
 
     const removeTask = (id: string) => {
@@ -34,7 +36,11 @@ const TodoContextProvider = ({ children }: { children: React.ReactNode }) => {
         setTodo(
             todo.map((task) => {
                 if (task.id == targetTask.id) {
-                    return targetTask
+                    if (targetTask.title) {
+                        return targetTask
+                    } else {
+                        return task
+                    }
                 } else {
                     return task
                 }
