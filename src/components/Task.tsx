@@ -59,12 +59,12 @@ function Task({ id, flag, title, text }: ITask) {
                     <div className="flex item-center gap-1">
                         {flag ? (
                             <CheckCircleOutline
-                                className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
+                                className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
                                 onClick={checkIconHandler}
                             />
                         ) : (
                             <CheckCircleSolid
-                                className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
+                                className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
                                 onClick={checkIconHandler}
                             />
                         )}
@@ -76,11 +76,11 @@ function Task({ id, flag, title, text }: ITask) {
                     </div>
                     <div className="flex items-center gap-1">
                         <PencilSquareIcon
-                            className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
+                            className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
                             onClick={handleEditTask}
                         />
                         <TrashIcon
-                            className="h-6 w-6 text-[var(--text-color)] transition active:scale-90"
+                            className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
                             onClick={handleTrashClick}
                         />
                     </div>
