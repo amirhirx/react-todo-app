@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import type { ITask } from "../components/Task"
 
 interface ITodoContext {
@@ -12,7 +12,13 @@ interface ITodoContext {
 const TodoContext = createContext<ITodoContext>({} as ITodoContext)
 
 const TodoContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [todo, setTodo] = useState<ITask[]>([] as ITask[])
+    const [todo, setTodo] = useState<ITask[]>(
+        JSON.parse(localStorage.getItem("todo") as string) as ITask[]
+    )
+
+    useEffect(() => {
+        localStorage.setItem("todo", JSON.stringify(todo))
+    }, [todo])
 
     const newTask = (task: ITask) => {
         if (task.title) {
