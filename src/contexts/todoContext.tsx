@@ -12,9 +12,10 @@ interface ITodoContext {
 const TodoContext = createContext<ITodoContext>({} as ITodoContext)
 
 const TodoContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [todo, setTodo] = useState<ITask[]>(
-        JSON.parse(localStorage.getItem("todo") as string) as ITask[]
-    )
+    const initialTodoState = JSON.parse(localStorage.getItem("todo") as string)
+        ? JSON.parse(localStorage.getItem("todo") as string)
+        : []
+    const [todo, setTodo] = useState<ITask[]>(initialTodoState as ITask[])
 
     useEffect(() => {
         localStorage.setItem("todo", JSON.stringify(todo))
