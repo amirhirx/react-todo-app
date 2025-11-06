@@ -55,6 +55,7 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
                         value={taskTitle}
                         onChange={(event) => setTaskTitle(event.target.value)}
                         onKeyDown={editTaskWithEnter}
+                        autoFocus
                     />
                 </div>
                 <div className="my-2">

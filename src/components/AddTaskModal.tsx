@@ -53,6 +53,7 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                             })
                         }}
                         onKeyDown={addTaskWithEnter}
+                        autoFocus
                     />
                 </div>
                 <div className="my-2">
