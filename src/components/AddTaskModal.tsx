@@ -22,6 +22,12 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
         closeModal()
     }
 
+    const addTaskWithEnter = (event: { code: string }) => {
+        if (event.code === "Enter") {
+            addNewTask()
+        }
+    }
+
     return (
         <div className="w-full h-full bg-white/30 backdrop-blur fixed top-0 left-0 flex items-center justify-center z-10">
             <div className="bg-[var(--primary-color)] my-4 w-80 mx-auto rounded-md p-4 shadow-md">
@@ -46,6 +52,7 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
                                 return { ...prev, title: event?.target.value }
                             })
                         }}
+                        onKeyDown={addTaskWithEnter}
                     />
                 </div>
                 <div className="my-2">

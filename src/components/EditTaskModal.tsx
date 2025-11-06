@@ -28,6 +28,12 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
         closeModal()
     }
 
+    const editTaskWithEnter = (event: { code: string }) => {
+        if (event.code === "Enter") {
+            editTaskHandler()
+        }
+    }
+
     return (
         <div className="w-full h-full bg-white/30 backdrop-blur fixed top-0 left-0 flex items-center justify-center z-10">
             <div className="bg-[var(--primary-color)] my-4 w-80 mx-auto rounded-md p-4 shadow-md">
@@ -48,6 +54,7 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
                         className="w-full border border-[var(--secondary-color)] bg-[var(--secondary-color)] rounded-md outline-none px-2 py-1 shadow-md text-[var(--text-color)]"
                         value={taskTitle}
                         onChange={(event) => setTaskTitle(event.target.value)}
+                        onKeyDown={editTaskWithEnter}
                     />
                 </div>
                 <div className="my-2">
