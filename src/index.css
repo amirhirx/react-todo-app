@@ -23,3 +23,16 @@ body {
     background: var(--secondary-color);
     transition: 0.3s all;
 }
+
+.popup-animation {
+    animation: introScale 0.3s;
+}
+
+@keyframes introScale {
+    from {
+        scale: 1.5;
+    }
+    to {
+        scale: 1;
+    }
+}
