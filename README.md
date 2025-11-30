@@ -22,6 +22,7 @@ Deployment: Cloudflare Pages ☁️
 ## Run locally
 
 First install pnpm and git
+and then run the commands
 
 ```bash
 git clone https://github.com/amirhirx/react-todo-app.git
