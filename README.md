@@ -5,7 +5,7 @@ A modern task management app with responsive design for desktop 💻 and mobile 
 ## Features:
 
 - Add ➕, edit ✏️, and delete 🗑️ tasks easily
-- Smart modals 💬 for task input and editing
+- Modals 💬 for task input and editing
 - State management with Context API 🔄 for seamless updates
 - Persisted theme 🌗 and task lists 🗂️ for consistent user experience
 
