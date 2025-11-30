@@ -2,15 +2,12 @@
 
 A modern task management app with responsive design for desktop 💻 and mobile 📱, featuring dark mode 🌙 and automatic saving of tasks ✅ and theme preferences 🎨 in LocalStorage.
 
-Features:
+## Features:
 
-Add ➕, edit ✏️, and delete 🗑️ tasks easily
-
-Smart modals 💬 for task input and editing
-
-State management with Context API 🔄 for seamless updates
-
-Persisted theme 🌗 and task lists 🗂️ for consistent user experience
+- Add ➕, edit ✏️, and delete 🗑️ tasks easily
+- Smart modals 💬 for task input and editing
+- State management with Context API 🔄 for seamless updates
+- Persisted theme 🌗 and task lists 🗂️ for consistent user experience
 
 
 Tech Stack: React ⚛️ | TypeScript 🟦 | TailwindCSS 🎨
