@@ -29,5 +29,5 @@ and then run this commands
 git clone https://github.com/amirhirx/react-todo-app.git
 cd react-todo-app
 pnpm install
-pnpm dev
+pnpm start
 ```
