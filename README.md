@@ -13,11 +13,14 @@ A modern task management app with responsive design for desktop 💻 and mobile 
 Tech Stack: React ⚛️ | TypeScript 🟦 | TailwindCSS 🎨
 Deployment: Cloudflare Pages ☁️
 
-## Screenshots
+<details>
+  <summary>Screenshots</summary>
 
 ![Tasks list](/public/react-todo-app-tasks-list.png)
 
 ![Add new task](/public/recat-todo-app-new-task-modal.png)
+
+</details> 
 
 ## Run locally
 
