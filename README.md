@@ -4,11 +4,10 @@ A modern task management app with responsive design for desktop 💻 and mobile 
 
 ## Features:
 
-- Add ➕, edit ✏️, and delete 🗑️ tasks easily
-- Modals 💬 for task input and editing
-- State management with Context API 🔄 for seamless updates
-- Persisted theme 🌗 and task lists 🗂️ for consistent user experience
-
+-   Add ➕, edit ✏️, and delete 🗑️ tasks easily
+-   Modals 💬 for task input and editing
+-   State management with Context API 🔄 for seamless updates
+-   Persisted theme 🌗 and task lists 🗂️ for consistent user experience
 
 Tech Stack: React ⚛️ | TypeScript 🟦 | TailwindCSS 🎨
 Deployment: Cloudflare Pages ☁️
@@ -20,9 +19,9 @@ Deployment: Cloudflare Pages ☁️
 
 ![Add new task](/public/recat-todo-app-new-task-modal.png)
 
-</details> 
+</details>
 
-## Run locally
+## Get Started
 
 First install pnpm and git
 
@@ -31,6 +30,6 @@ and then run this commands
 ```bash
 git clone https://github.com/amirhirx/react-todo-app.git
 cd react-todo-app
-pnpm install
+pnpm build
 pnpm start
 ```
