@@ -2,16 +2,9 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid"
 import { useContext, useState } from "react"
 import { TodoContext } from "../contexts/todoContext"
 import EditTaskModal from "./EditTaskModal"
-
 import { CheckCircleIcon as CheckCircleOutline } from "@heroicons/react/24/outline"
 import { CheckCircleIcon as CheckCircleSolid } from "@heroicons/react/24/solid"
-
-interface ITask {
-    id: string
-    flag: boolean
-    title: string
-    text: string
-}
+import type { ITask } from "../types/task"
 
 function Task({ id, flag, title, text }: ITask) {
     const { removeTask, toggleTaskFlag } = useContext(TodoContext)
