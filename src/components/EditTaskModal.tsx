@@ -35,8 +35,8 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
     }
 
     return (
-        <div className="w-full h-full bg-white/30 backdrop-blur fixed top-0 left-0 flex items-center justify-center z-10">
-            <div className="bg-[var(--primary-color)] my-4 w-80 mx-auto rounded-md p-4 shadow-md popup-animation">
+        <div className="w-full h-full backdrop-blur-xs fixed top-0 left-0 flex items-center justify-center z-10">
+            <div className="bg-[var(--primary-color)] my-4 w-80 mx-auto rounded-md p-4 popup-animation">
                 <h2 className="font-bold text-xl text-[var(--text-color)]">
                     ویرایش کار
                 </h2>
