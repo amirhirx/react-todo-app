@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import Menu from "./components/Menu"
 import AddTaskModal from "./components/AddTaskModal"
 import { TodoContext } from "./contexts/todoContext"
-import Task from "./components/Task"
+import TasksContainer from "./components/TasksContainer"
 
 function App() {
     const { todo } = useContext(TodoContext)
@@ -18,19 +18,7 @@ function App() {
             {showNewTaskModal ? (
                 <AddTaskModal closeModal={closeNewTaskModal} />
             ) : null}
-            <div className="w-11/12 md:w-2/3 mx-auto">
-                {todo.map(({ id, flag, title, text }) => {
-                    return (
-                        <Task
-                            key={id}
-                            id={id}
-                            flag={flag}
-                            title={title}
-                            text={text}
-                        />
-                    )
-                })}
-            </div>
+            <TasksContainer tasks={todo} />
         </>
     )
 }
