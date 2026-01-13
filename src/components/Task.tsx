@@ -8,27 +8,6 @@ import type { ITask } from "../types/task"
 
 function Task({ id, flag, title, text }: ITask) {
     const { removeTask, toggleTaskFlag } = useContext(TodoContext)
-    const handleTrashClick = () => {
-        removeTask(id)
-    }
-
-    const handleEditTask = () => setShowEditTaskModal(true)
-
-    const closeEditTaskModal = () => {
-        setShowEditTaskModal(false)
-    }
-
-    const checkIconHandler = () => {
-        const changedTask = {
-            id: id,
-            flag: !flag,
-            title: title,
-            text: text,
-        }
-
-        console.log(changedTask)
-        toggleTaskFlag(changedTask)
-    }
 
     const [showEditTaskModal, setShowEditTaskModal] = useState(false)
     return (
@@ -39,7 +18,7 @@ function Task({ id, flag, title, text }: ITask) {
                     flag={flag}
                     title={title}
                     text={text}
-                    closeModal={closeEditTaskModal}
+                    closeModal={() => setShowEditTaskModal(false)}
                 />
             )}
             <div
@@ -53,12 +32,12 @@ function Task({ id, flag, title, text }: ITask) {
                         {flag ? (
                             <CheckCircleOutline
                                 className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
-                                onClick={checkIconHandler}
+                                onClick={() => toggleTaskFlag(id)}
                             />
                         ) : (
                             <CheckCircleSolid
                                 className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
-                                onClick={checkIconHandler}
+                                onClick={() => toggleTaskFlag(id)}
                             />
                         )}
                         <h3
@@ -70,11 +49,11 @@ function Task({ id, flag, title, text }: ITask) {
                     <div className="flex items-center gap-1">
                         <PencilSquareIcon
                             className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
-                            onClick={handleEditTask}
+                            onClick={() => setShowEditTaskModal(true)}
                         />
                         <TrashIcon
                             className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
-                            onClick={handleTrashClick}
+                            onClick={() => removeTask(id)}
                         />
                     </div>
                 </div>
@@ -85,4 +64,3 @@ function Task({ id, flag, title, text }: ITask) {
 }
 
 export default Task
-export type { ITask }
