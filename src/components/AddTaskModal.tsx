@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { TodoContext } from "../contexts/todoContext"
 import { nanoid } from "nanoid"
-import type { ITask } from "./Task"
+import type { ITask } from "../types/task"
 
 interface IAddTaskModal {
     closeModal: () => void
