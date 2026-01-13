@@ -1,12 +1,12 @@
 import { createContext, useEffect, useState } from "react"
-import type { ITask } from "../components/Task"
+import type { ITask } from "../types/task"
 
 interface ITodoContext {
     todo: ITask[]
     newTask: (task: ITask) => void
     removeTask: (id: string) => void
     editTask: (task: ITask) => void
-    toggleTaskFlag: (task: ITask) => void
+    toggleTaskFlag: (id: string) => void
 }
 
 const TodoContext = createContext<ITodoContext>({} as ITodoContext)
@@ -55,21 +55,11 @@ const TodoContextProvider = ({ children }: { children: React.ReactNode }) => {
         )
     }
 
-    const toggleTaskFlag = (targetTask: ITask) => {
+    const toggleTaskFlag = (id: string) => {
         setTodo(
-            todo.map((task) => {
-                if (task.id == targetTask.id) {
-                    const changed = {
-                        id: targetTask.id,
-                        flag: targetTask.flag,
-                        title: targetTask.title,
-                        text: targetTask.text,
-                    }
-                    return changed
-                } else {
-                    return task
-                }
-            })
+            todo.map((task) =>
+                task.id == id ? { ...task, flag: !task.flag } : task
+            )
         )
     }
 
