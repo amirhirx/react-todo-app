@@ -39,6 +39,7 @@ function EditTaskModal({ id, flag, title, text, closeModal }: IEditTaskModal) {
             title="ویرایش کار"
             task={task}
             setTask={setTask}
+            clickHandlerText={"ویرایش"}
             clickHandler={editTaskHandler}
             closeHandler={closeModal}
             keyDownHandler={editTaskWithEnter}

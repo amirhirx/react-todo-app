@@ -34,6 +34,7 @@ function AddTaskModal({ closeModal }: IAddTaskModal) {
             title={"کار جدید"}
             task={newTaskObj}
             setTask={setNewTaskObj}
+            clickHandlerText={"افزودن"}
             clickHandler={addNewTask}
             closeHandler={closeModal}
             keyDownHandler={addTaskWithEnter}

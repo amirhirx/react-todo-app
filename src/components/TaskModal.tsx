@@ -4,6 +4,7 @@ export default function TaskModal({
     title,
     task,
     setTask,
+    clickHandlerText,
     clickHandler,
     closeHandler,
     keyDownHandler,
@@ -11,6 +12,7 @@ export default function TaskModal({
     title: string
     task: ITask
     setTask: React.Dispatch<React.SetStateAction<ITask>>
+    clickHandlerText: string
     clickHandler: () => void
     closeHandler: () => void
     keyDownHandler: (event: { code: string }) => void
@@ -67,7 +69,7 @@ export default function TaskModal({
                     onClick={clickHandler}
                     className="bg-green-500 text-white font-bold py-2 px-4 mt-2 text-sm rounded-md cursor-pointer transition active:bg-green-600 active:scale-95"
                 >
-                    افزودن
+                    {clickHandlerText}
                 </button>
                 <button
                     className="m-2 text-[var(--text-color)]"
