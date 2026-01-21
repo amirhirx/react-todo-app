@@ -25,14 +25,16 @@ body {
 }
 
 .popup-animation {
-    animation: introScale 0.3s;
+    animation: introScale 0.15s;
 }
 
 @keyframes introScale {
     from {
         scale: 1.5;
+        transform: translateY(100%) translateX(100%) rotate(45deg);
     }
     to {
         scale: 1;
+        transform: translateY(0%) translateX(0%) rotate(0deg);
     }
 }
