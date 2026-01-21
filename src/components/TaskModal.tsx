@@ -19,7 +19,7 @@ export default function TaskModal({
 }) {
     return (
         <div className="w-full h-full backdrop-blur-xs fixed top-0 left-0 flex items-center justify-center z-10">
-            <div className="bg-[var(--primary-color)] my-4 w-80 mx-auto rounded-md p-4 popup-animation">
+            <div className="bg-[var(--primary-color)] my-4 w-80 mx-auto rounded-md p-4 popup-animation shadow border-2 border-[var(--secondary-color)]">
                 <h2 className="font-bold text-xl text-[var(--text-color)]">
                     {title}
                 </h2>
@@ -34,7 +34,7 @@ export default function TaskModal({
                         id="new-task-title"
                         name="new-task-title"
                         type="text"
-                        className="w-full border border-[var(--secondary-color)] bg-[var(--secondary-color)] rounded-md outline-none px-2 py-1 shadow-md text-[var(--text-color)]"
+                        className="w-full border border-[var(--secondary-color)] bg-[var(--secondary-color)]/50 rounded-md outline-none mt-1 px-2 py-1 shadow text-[var(--text-color)]"
                         value={task.title}
                         onChange={(event) => {
                             setTask((prev) => {
@@ -56,7 +56,7 @@ export default function TaskModal({
                         name="new-task-text"
                         id="new-task-text"
                         rows={4}
-                        className="w-full min-w-full max-w-full min-h-12 border border-[var(--secondary-color)] bg-[var(--secondary-color)] rounded-md outline-none px-2 py-1 shadow-md text-[var(--text-color)]"
+                        className="w-full min-w-full max-w-full min-h-12 border border-[var(--secondary-color)] bg-[var(--secondary-color)]/50 rounded-md outline-none mt-1 px-2 py-1 shadow text-[var(--text-color)]"
                         value={task.text}
                         onChange={(event) => {
                             setTask((prev) => {
@@ -72,7 +72,7 @@ export default function TaskModal({
                     {clickHandlerText}
                 </button>
                 <button
-                    className="m-2 text-[var(--text-color)]"
+                    className="m-2 text-[var(--text-color)] cursor-pointer"
                     onClick={closeHandler}
                 >
                     بستن
