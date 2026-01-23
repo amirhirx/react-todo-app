@@ -9,6 +9,12 @@ import type { ITask } from "../types/task"
 function Task({ id, flag, title, text }: ITask) {
     const { removeTask, toggleTaskFlag } = useContext(TodoContext)
 
+    const [isRemoving, setIsRemoving] = useState(false)
+    const removeTaskHandler = () => {
+        setIsRemoving(true)
+        setTimeout(() => removeTask(id), 300)
+    }
+
     const [showEditTaskModal, setShowEditTaskModal] = useState(false)
     return (
         <>
@@ -23,9 +29,9 @@ function Task({ id, flag, title, text }: ITask) {
             )}
             <div
                 id={id}
-                className={`bg-[var(--primary-color)] m-4 p-4 rounded-md ${
-                    flag ? "line-through opacity-45" : ""
-                }`}
+                className={`bg-[var(--primary-color)] m-4 p-4 rounded-md transition ${
+                    flag && "line-through opacity-45"
+                } ${isRemoving && "opacity-0 scale-50"}`}
             >
                 <div className="flex items-center justify-between">
                     <div className="flex item-center gap-1">
@@ -53,7 +59,7 @@ function Task({ id, flag, title, text }: ITask) {
                         />
                         <TrashIcon
                             className="h-5 w-5 text-[var(--text-color)] transition active:scale-90"
-                            onClick={() => removeTask(id)}
+                            onClick={() => removeTaskHandler()}
                         />
                     </div>
                 </div>
