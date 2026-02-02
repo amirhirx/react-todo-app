@@ -29,7 +29,7 @@ function Task({ id, flag, title, text }: ITask) {
             )}
             <div
                 id={id}
-                className={`bg-[var(--primary-color)] m-4 p-4 rounded-md transition ${
+                className={`shadow border-2 border-[var(--secondary-color)] bg-[var(--primary-color)] m-4 p-4 rounded-md transition ${
                     flag && "line-through opacity-45"
                 } ${isRemoving && "opacity-0 scale-50"}`}
             >
