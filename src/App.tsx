@@ -1,8 +1,8 @@
 import { useContext, useState } from "react"
 import Menu from "./components/Menu"
-import AddTaskModal from "./components/AddTaskModal"
 import { TodoContext } from "./contexts/todoContext"
 import TasksContainer from "./components/TasksContainer"
+import AddTaskModal from "./components/modals/AddTaskModal"
 
 function App() {
     const { todo } = useContext(TodoContext)

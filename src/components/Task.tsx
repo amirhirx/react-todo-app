@@ -1,7 +1,7 @@
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/24/solid"
 import { useContext, useState } from "react"
 import { TodoContext } from "../contexts/todoContext"
-import EditTaskModal from "./EditTaskModal"
+import EditTaskModal from "./modals/EditTaskModal"
 import { CheckCircleIcon as CheckCircleOutline } from "@heroicons/react/24/outline"
 import { CheckCircleIcon as CheckCircleSolid } from "@heroicons/react/24/solid"
 import type { ITask } from "../types/task"

@@ -1,4 +1,4 @@
-import type { ITask } from "../types/task"
+import type { ITask } from "../../types/task"
 
 export default function TaskModal({
     title,

@@ -1,8 +1,7 @@
 import { useContext } from "react"
-import { TodoContext } from "../contexts/todoContext"
-
+import { TodoContext } from "../../contexts/todoContext"
 import { useState } from "react"
-import type { ITask } from "../types/task"
+import type { ITask } from "../../types/task"
 import TaskModal from "./TaskModal"
 
 interface IEditTaskModal {
